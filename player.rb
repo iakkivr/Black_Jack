@@ -53,7 +53,7 @@ class User
 
   def calculate_score
     result = []
-    @cards.map { |card| result << card.cost unless card.ace? }
+    @cards.map { |card| result << card.points unless card.ace? }
     result.flatten.sum
   end
 end

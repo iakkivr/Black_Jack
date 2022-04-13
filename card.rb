@@ -23,6 +23,8 @@ class Card
     %w[A].include? value
   end
 
+  protected
+
   def cost
     return [1,11] if ace?
     return [10] if picture?
