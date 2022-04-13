@@ -19,7 +19,7 @@ class Game
     @round.bet
     Interface.bet(player.balance)
     @round.player_choice(Interface.player_choice)
-    Interface.player_choice_game == 1 ? self.new_round : Interface.goodbye(@player)
+    Interface.player_choice_game == 1 ? new_round : Interface.goodbye(@player)
   end
 
   def new_round
@@ -27,15 +27,13 @@ class Game
     dealer.cards.clear
     @round = Round.new(self)
     @round.initial_distribution
-    self.controller
+    controller
   end
 
   private
 
   def adding_players
     @player = User.new(Interface.ask_player_name)
-    @dealer = User.new("Dealer")
+    @dealer = User.new('Dealer')
   end
-
 end
-

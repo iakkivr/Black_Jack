@@ -4,7 +4,6 @@ class Card
 
   attr_reader :value, :suit, :points
 
-
   def initialize(suit, value)
     @value = value
     @suit = suit
@@ -26,8 +25,9 @@ class Card
   protected
 
   def cost
-    return [1,11] if ace?
+    return [1, 11] if ace?
     return [10] if picture?
+
     [value]
   end
 end

@@ -1,6 +1,6 @@
-
 module Interface
   module_function
+
   def ask_player_name
     puts 'Введи свое имя:'
     gets.chomp
@@ -31,11 +31,11 @@ module Interface
   end
 
   def hide_dealer_cards
-    puts "Dealer cards: * *"
+    puts 'Dealer cards: * *'
   end
 
   def goodbye
-    "Благодарю за игру! Возвращайся!"
+    'Благодарю за игру! Возвращайся!'
   end
 
   def player_choice
@@ -51,5 +51,4 @@ module Interface
   def bet(balance)
     puts "Ставка сделана, Ваш баланс: #{balance} "
   end
-
 end

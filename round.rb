@@ -1,6 +1,5 @@
 require_relative 'deck'
 class Round
-
   attr_accessor :deck
   attr_reader :bank
 
@@ -11,7 +10,7 @@ class Round
   end
 
   def player_choice(choice)
-    if choice == 0
+    if choice.zero?
       dealer_choice
       player_choice(Interface.player_choice)
     end
@@ -20,9 +19,7 @@ class Round
       dealer_choice
       complete_the_round
     end
-    if choice == 2
-      complete_the_round
-    end
+    complete_the_round if choice == 2
   end
 
   def initial_distribution
@@ -36,6 +33,7 @@ class Round
 
   def dealer_choice
     return if @game.dealer.cards_count > 2
+
     additional_distribution(@game.dealer) if @game.dealer.score < 17
   end
 
@@ -70,9 +68,9 @@ class Round
   end
 
   def result_round
-    return :defeat if @game.player.score > 21 or (@game.player.score < @game.dealer.score && @game.dealer.score < 22 )
+    return :defeat if (@game.player.score > 21) || (@game.player.score < @game.dealer.score && @game.dealer.score < 22)
     return :draw if @game.player.score == @game.dealer.score
+
     :win
   end
-
 end
