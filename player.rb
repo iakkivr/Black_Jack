@@ -18,6 +18,10 @@ class User
     @cards ||= []
   end
 
+  def cards_count
+    @cards.count
+  end
+
   def show_cards
     @cards.map(&:picture)
   end
@@ -56,4 +60,4 @@ end
 
 
 game = Game.new
-game.controller
+game.new_round
